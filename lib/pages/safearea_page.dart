@@ -10,7 +10,7 @@ class SafeAreaExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Safe Area Widget', style: utils.h1StyleText,),
+        title: Text('Safe Area Widget', style: utils.h1StyleTextWhite,),
         // leading: IconButton(icon:Icon(Icons.arrow_back),
         //   onPressed:() =>  Navigator.pushReplacementNamed(context, 'home'),
         // ),
@@ -44,8 +44,7 @@ class SafeAreaExamplePage extends StatelessWidget {
   }
 
   _launchURL() async {
-
-    const url = 'http://www.google.cl';
+    const url = 'https://github.com/felibassx/flutter_widget_examples/blob/master/lib/pages/safearea_page.dart';
     if (await canLaunch(url)) {
       await launch(url);
     } else {

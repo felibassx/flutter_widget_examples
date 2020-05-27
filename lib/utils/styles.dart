@@ -26,6 +26,12 @@ final TextStyle pStyleText = TextStyle(
   fontWeight: FontWeight.bold
 );
 
+final TextStyle p2StyleText = TextStyle(
+  color: Colors.black87,
+  fontSize: 16,
+  fontWeight: FontWeight.w500
+);
+
 final TextStyle lstElemStyleText = TextStyle(
   color: Colors.black87,
   fontSize: 15,

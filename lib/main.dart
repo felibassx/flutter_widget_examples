@@ -12,6 +12,12 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Color.fromRGBO(15, 95, 122, 1.0)
+        ),
+
+      ),
       routes: {
         'home': (BuildContext context) => HomePage(),
         'safearea': (BuildContext context) => SafeAreaExamplePage(),

@@ -9,26 +9,40 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Widget. Ejemplos'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,            
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(right: 10),
+                child: Image(
+                  image: AssetImage('assets/images/images.png'), 
+                  width: 30,                
+                ),
+              ),
+              Text('Flutter Widget'),
+            ],
+          ),
+          
         ),
-        body: Center(child: Text('Widget nativos de Flutter')),
+        body: Center(
+          child: Text('Widget nativos de Flutter', style: utils.p2StyleText,),
+        ),
         drawer: Drawer(
-          elevation: 5.0,
+          elevation: 5.0,          
           child: ListView(
             // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
+              DrawerHeader(                
                 padding: EdgeInsets.all(60),
                 child: Container(
-
                     child: Text(
                       'Todos los widget',
                       style: utils.h1StyleTextWhite,
                     )
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.black54,
                 ),
               ),
               MenuItem(

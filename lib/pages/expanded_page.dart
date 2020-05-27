@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:widgets_collection/utils/styles.dart' as utils;
+import 'package:widgets_collection/widgets/Cuadrado.dart';
 
 class ExpandedWidget extends StatelessWidget {
   const ExpandedWidget({Key key}) : super(key: key);
@@ -9,10 +11,18 @@ class ExpandedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expanded Widget', style: utils.h1StyleText,),
-        leading: IconButton(icon:Icon(Icons.arrow_back),
-          onPressed:() =>  Navigator.pushReplacementNamed(context, 'home'),
-        )
+        title: Text('Expanded Widget', style: utils.h1StyleTextWhite,),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pushReplacementNamed(context, 'home'),
+          ),
+          IconButton(
+            icon: Icon(Icons.code),
+            onPressed: _launchURL,
+          ),
+          
+        ],
       ),
       body: Row(
         children: <Widget>[
@@ -30,26 +40,16 @@ class ExpandedWidget extends StatelessWidget {
       ),
     );
   }
-}
 
-class Cuadrado extends StatelessWidget {
-  final Color color;
-  final String texto;
-
-  Cuadrado(this.color, this.texto);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(color: this.color),
-      child: Text(
-        this.texto,
-        style: utils.pStyleText,
-      ),
-    );
+   _launchURL() async {
+    const url = 'https://github.com/felibassx/flutter_widget_examples/blob/master/lib/pages/expanded_page.dart';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
+  
 }
+
+
